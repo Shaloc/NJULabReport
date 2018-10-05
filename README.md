@@ -1,12 +1,24 @@
-# NjustLabReport
+# NJULabReport
 
-This is a laboratory report(LabReport) for almost all students in NUST.
+LabReport模板，从[南理工实验报告模板](https://github.com/DocF/NjustLabReport)Fork,由Shaloc修改。
 
-## Descrtiption 
-非官方版南理工实验报告模板，比较干净清爽，喜欢的同学可以拿去下载。
+推荐使用Windows 10系统完成以下操作，否则某些字体可能无法正确编译/显示。
 
-## Using：
+## Requirments
+- Python
+- [TexLive](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images)
+- [TexStudio](https://www.texstudio.org/)
 
-    使用TeX发行版本：TeXlive，使用TeXstudio+XeLaTeX命令编译；
+## Make
+选项 - 设置TexStudio - 构建 - 默认编译器，选择XeLaTex
 
-    运行NJUSTmain文件。
+## FAQS
+- Package minted Error: You must invoke LaTeX with the -shell-escape flag.
+-- 在选项 - 设置TexStudio - 命令 - XeLaTex 中加入 `-shell-escape`
+- Package minted Error: You must have pygmentize installed to use this package. 
+-- 安装Python, 然后`pip install -i https://pypi.tuna.tsinghua.edu.cn/simple` Pygments
+
+## 推荐阅读
+- [Begin-Latex-in-minutes](https://github.com/luongvo209/Begin-Latex-in-minutes)
+
+

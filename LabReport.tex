@@ -1,18 +1,19 @@
 %---------------------------------------------------------------------
 %
-%                         Project Name:Njust LabReport 
+%                             NJU LabReport 
+%			A XeLaTeX Template modified from NUST LabReport
 %
 %---------------------------------------------------------------------
-%
-%                 created by Qingyun Fang <fqy2017@gmail.com>
-%
-%                        Last-modified: 2017-6-12
+%               
+%			 	  modified by Shaloc <shalocn@outlook.com>
+%		created by and thanks to Qingyun Fang <fqy2017@gmail.com>
+%					https://github.com/DocF/NjustLabReport
+%                        Last-modified: 2018-10-05
 %
 %---------------------------------------------------------------------
 
 \documentclass[a4paper,12pt]{report}
 \usepackage{ctex}
-%\usepackage{xeCJK}
 \usepackage{times}
 \usepackage{setspace}
 \usepackage{fancyhdr}
@@ -27,25 +28,31 @@
 \usepackage{cite}
 \usepackage{listings}
 \usepackage[framed,numbered,autolinebreaks,useliterate]{mcode} % 插入代码
+\usepackage{minted} 										   % 代码高亮
+\usepackage{amsmath} 										   % 插入定理
+\usepackage{booktabs} 										   % 插入三线表格
+\usepackage{fancyvrb}
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+%代码字体 monaco
+\newcommand{\monaco}{\textit{\textbf{\textsf{Monaco}}}}
 
 %---------------------------------------------------------------------
-%	页眉页脚设置
+%	页眉页脚设置, 如果不需要这部分可以使用\iffalse \fi注释掉
 %---------------------------------------------------------------------
 \fancypagestyle{plain}{
 	\pagestyle{fancy}      %改变章节首页页眉
 }
 
 \pagestyle{fancy}
-\lhead{\kaishu~通信工程实验报告~}
-\rhead{\kaishu~913104330115~方青云~}
+\lhead{\kaishu~文献综述~}
+\rhead{}
 \cfoot{\thepage}
 
 %---------------------------------------------------------------------
 %	章节标题设置
 %---------------------------------------------------------------------
-\titleformat{\chapter}{\centering\zihao{-1}\heiti}{实验\chinese{chapter}}{1em}{}
+\titleformat{\chapter}{\centering\zihao{-1}\heiti}{}{1em}{}
 \titlespacing{\chapter}{0pt}{*0}{*6}
 
 %---------------------------------------------------------------------
@@ -83,10 +90,10 @@
 \begin{titlepage}
 	\begin{center}
 		
-    \includegraphics[width=0.9\textwidth]{figure//Njust.png}\\
+    \includegraphics[width=0.4\textwidth]{figure//NJU.jpg}\\
     \vspace{10mm}
-    \textbf{\zihao{2}\kaishu{电子工程与光电技术学院}}\\[0.8cm]
-    \textbf{\zihao{2}\kaishu{ 实验报告}}\\[3cm]
+    
+    \textbf{\zihao{1}\heiti{文献综述}}\\[0.8cm]
     
 	\vspace{\fill}
 	
@@ -94,39 +101,33 @@
 {\songti\zihao{3}	
 \begin{tabular}{rl}
 	
-	{\makebox[4\ccwd][s]{班\qquad 级：}}& ~\kaishu 通信二班\\
-	
-	{\makebox[4\ccwd][s]{姓\qquad 名：}}& ~\kaishu 方青云 \\ 
+	{\makebox[4\ccwd][s]{项\qquad 目：}}& ~\kaishu 嵌入式系统的集群计算研究 \\ 
 
-    {\makebox[4\ccwd][s]{学\qquad 号：}}& ~\kaishu 913104330115 \\ 
+    {\makebox[4\ccwd][s]{成\qquad 员：}}& ~\kaishu 高博文~陈建~佘加辉~吴沛聪 \\ 
    
-	{\makebox[4\ccwd][s]{指导老师：}} & ~\kaishu 宁德强\\ 
+	{\makebox[4\ccwd][s]{指导教师：}} & ~\kaishu 方元\\ 
 
 \end{tabular}
  }\\[2cm]
 \vspace{\fill}
 \zihao{4}
-2016\textasciitilde 2017第一学期\\
-使用\LaTeX 撰写于\today
+\today
 	\end{center}	
 \end{titlepage}
 
 %---------------------------------------------------------------------
 %  摘要页
 %---------------------------------------------------------------------
+\iffalse
 \begin{abstract}
 \begin{spacing}{1.5}
 	{\zihao{-4}
-	南京理工大学（Nanjing University of Science and Technology）是中华人民共和国工业和信息化部直属的一所以工为主，理、工、文、经、管、法、教、艺等多学科协调发展的全国重点大学，是国家“211工程”、“985 工程优势学科创新平台”重点建设高校之一，是“111计划”、“卓越计划”、“中俄工科大学联盟”入选高校之一，素有“兵器技术人才摇篮”的美誉。
-	
-	1953年，南京理工大学由中国人民解放军军事工程学院（简称“哈军工”）分建而成，先后经历炮兵工程学院、华东工程学院、华东工学院等发展阶段，1993 年更为现名。
-	
-	学校北依紫金山，西临明城墙，校园占地3118亩。校舍建筑总面积98万平方米，
-	南京理工大学是江苏唯一连续四届获得“江苏省十大专利金奖”和“十大专利发明人”称号的单位，并创办有全国第一个依托大学和大学科技园建设的国家专利产业化试点基地，为国防和国民经济建设均做出了重要贡献。\\[0.5cm]
-	\textbf{关键字}：\quad 南理工 \quad 电光院 \quad 985平台 \quad211工程
+	\\[0.5cm]
+	\textbf{关键字}：\quad A \quad B \quad C \quad D
 	}
 \end{spacing}
 \end{abstract}
+\fi
 
 %---------------------------------------------------------------------
 %  目录页
@@ -134,72 +135,34 @@
 \tableofcontents % 生成目录
 
 %---------------------------------------------------------------------
-%  实验一
+%  Chapter: 文献综述
 %---------------------------------------------------------------------
-\chapter{电光13介绍}
+\chapter{文献综述}
 \setcounter{page}{1}
 \begin{spacing}{1.5}
 \songti\zihao{-4}
 
-\section{实验目的}
-Happy TeXing!
-\section{实验要求}
-Happy TeXing!
-\section{实验内容}
-南京理工大学电子工程与光电技术学院2013级简称“电光13级”，是一个充满朝气，蓬勃向上的年轻集体\cite{Leslie.{1994}}。目前年级共有电子信息工程、通信工程、电子科学与技术、光电信息科学与工程、微电子技术、探测制导与控制技术、信息对抗技术7个专业，14个班级，563人，是全校2013级人数最多、规模最大的年级\cite{Donald.{1984}}。
+\section{研究背景及意义}
+随着计算机技术的不断发展、物联网应用的兴起和通信技术的革新，嵌入式设备作为可移动设备、物联网终端和广域网组网中的重要组成部分正发挥着越来越重要的作用，伴随着应用环境和应用需求的多样化与复杂化，嵌入式设备的计算能力需求正面临着越来越大的挑战。因为嵌入式系统计算能力的限制，在很多应用场景中它仍然扮演着数据收集、传感器控制、信号处理等并不需要太高计算能力的角色。
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics [width=1.0\textwidth]{figure//Fig1.png}
-	\caption{南京理工电光13级}\label{dianguang13}
-\end{figure}
+解决嵌入式系统计算能力缺陷的一个方法是将计算任务通过网络发送给计算中心，也就是大型计算机集群来完成。但是，这种方式对部署环境的通信能力和通信环境提出了较高要求，同时对部署环境的限制较大，在某种程度上还影响了终端用户的用户体验，由于嵌入式系统计算能力和通信能力的限制，有的设计因此无法被实现。李安的一个团队在一次测试中指出从一个Amazon的EC2计算实例到全球多个节点的平均回环时间达到了74ms，最高延迟甚至达到了500ms\cite{Satyanarayanan.{2017}}，而且由于全球网络环境中某些特殊”局域网“的限制，网络连通性是没有稳定保障的。对移动设备的智能化的要求更是将提高嵌入式设备的计算能力置于不得不解决之地。提高嵌入式系统的计算性能可以通过改进芯片制作工艺，设计结构更为先进的嵌入式处理器来完成，例如2017年的高通基于第二代FinFTF工艺的ARMv8架构处理器骁龙835上集成了30亿个晶体管，比上一代骁龙820降低了20\%的功耗，提升了约100\%的计算能力\cite{ZhouPei.{2017}}。工艺上的改进的确可以提高处理器的计算性能，但是不可避免地会遇到价格过高限制用户群体以及灵活性不高的问题。因此在增强嵌入式处理器性能的同时，创建合理的嵌入式系统工作结构、改进嵌入式系统调度算法成为了尤为重要的问题。
 
-电光13级拥有昂扬向上的年级文化。在学院层面年级秉承“敢为人先，争创一流”的电光精神，在年级层面提出打造“争先年级、团结年级、勤学年级、健康年级、追梦年级”的“五个年级”建设目标，在学生个人层面提出“做自立人，怀感恩心，成奋斗者”的培育目标，三个层面的文化理念共同构成年级的核心价值体系，成为激励电光13级广大同学奋斗进取的精神动力。同时，年级倡导“自立”文化、“感恩”文化和“奋斗”文化，注重将培养学生的热情意识、礼貌意识、时间意识和规则意识贯穿于育人工作始终。
+构建一定规模的嵌入式集群就是一个不错的解决方案，它可以充分发挥嵌入式设备可扩展性与灵活性的优势，在降低整体功耗的同时解决单个核心计算能力不高的问题。同时因为RTOS、RT-Thread、Windows IoT等一系列嵌入式实时系统的存在，搭建一个嵌入式集群的困难程度已经不大。对嵌入式系统集群的进一步研究对提高嵌入式系统计算能力使其支持更为复杂、更加庞大的应用有着十分重要的意义。
 
-电光13级拥有科学完善的年级制度。年级制定了包括《班级量化考核管理规定》、《学生综合素质测评规定》、《跑操考核规定》、《学生查课规定》、《卫生检查规定》、《宿舍检查规定》、《电脑使用管理规定》、《参与学术文化活动规定》、《请销假管理规定》、《住宿管理规定》等“十项规定”；划定了严禁“考试作弊、不假离校、擅自租房、私烧电器、滋事打架、私刻公章”的“六条红线”，形成了“十规六线”的制度系统。年级实现了制度规范的“上墙、上网、入脑、入心”，形成了人人遵守制度、人人敬畏制度、按制度行事的良好风气，保证了年级的“自动化管理”。年级正在积极起草《年级公约》，并将以公约为依据倡导广大同学实现自我教育、自我管理和自我服务。
+\section{研究现状}
+早在1994年，美国航空航天局就开始搭建Bewulf计算集群，它使用以太网实现计算机之间的通信与任务调度，实现了较高的性价比\cite{Gropp.{2002}}。近五年间，很多学者已经开始了对搭建嵌入式集群的尝试并对其进行性能测试。桑坦德工业大学的CJ Barrios等人在今年发表了一篇论文展示了他们对低功耗集群的能耗模型的研究\cite{Barrios.{2017}}，而加拿大McMaster大学的N.Balakrishnan教授的团队已经使用搭载ARM Cortex-A9处理器的Pandaboard ES和搭载A11的Raspberry Pi 2搭建了一个嵌入式集群。他们的集群在并行计算的条件下实现了较高的能效和性能，但是随着集群节点数的增加集群性能的增长下降很快，同时增加节点导致的网络限制也制约了集群的进一步规模扩大和性能提升。之后的一些实验在此基础上通过提供更多的服务进行了进一步测试。Simon J Cox的团队则通过搭建了一个由64个Raspberry Pi的高性能嵌入式集群"Iridis-pi"进行了进一步的研究性实验\cite{Cox.{2014}}。他们在改善集群的扩展性问题上提出了使用SATA存储和PCIe总线的解决方案。在国内，湖南大学的黄一智提出了在集群上加入CPU、GPU异构节点来提高集群的性能以及算法的实时性的观点\cite{Huang.{2016}}。他使用Banana Pi搭建了一个16节点的集群并且使用Canny算法对他构建的集群效率进行了测试，但是他也没能在更大规模的应用上进行进一步研究。
 
-电光13级拥有充满责任感的年级骨干。班长团支书队伍是各班的领跑者，按照“吃苦、吃亏、吃醋”的工作准则，在建设优秀班集体过程中发挥了核心作用。“三自”中心是年级学生自我教育、管理和服务的组织，承担日常“三查”和“三自论坛”工作。团学联合会是年级重要的群团组织，按照“团结型、奉献型、开放型”建设目标，负责各类文体和主题教育活动举办。党支部是学生党员组成的先锋组织，主要负责各类志愿服务活动开展。年级还设有秉承“精、专、敏、毅”工作准则的学习副班长工作组，秉承爱心、耐心、恒心“三心合一”理念的心理委员工作组等机构。年级骨干队伍的敬业、热情和无私奉献，是年级高效运行的坚实基础。
+纵观以上的实验及其总结我们不难发现对嵌入式集群的研究依然还停留在集群的构建和简单的能耗、计算速度测试上，没能在应用层面提出一个解决方案。同时在互相研究集群的构建时他们发现不同的处理器架构、不同的开发平台、甚至不同的开发板电源都会导致整体能耗和性能的不同，集群构建的可移植性和跨平台可用性并没有得到解决，面对着种类繁多的嵌入式开发平台，解决可移植性和跨平台搭建集群以及共用接口协议是十分关键并且需要解决的问题。同时在Simon的研究中尽管使用了新的存储和总线方案，他们也没能在很大程度上提高集群的可扩展性，也就是说没能发挥整个集群可能发挥的最大性能。同时对嵌入式系统的任务调度的研究也处于较为初级的阶段，而任务调度是集群与分布式计算中一个重要的环节。
 
-\begin{wrapfigure}{l}{0.33\textwidth}
-	\begin{center}
-		\includegraphics[width=0.30\textwidth]{figure//Fig2.png}\\
-	\end{center}
-	\caption{EEschool}
-\end{wrapfigure}
+\section{研究方向}
+基于以上对已经进行的实验和他们存在的问题和不足的分析，进一步的研究我们将会从下面几个部分进行。
 
-电光13级拥有争先进取的年级学风。年级借用“我为什么来到南理工？我想成为什么样的人？”的“竺可桢之问”，激励学生增强学习内驱力。实施严格的夜间查寝制、电脑承诺使用制、夜间集体自习制和“弹性化”的跑操制，并试行特等奖学金公开差额答辩制，多次举办“身边榜样故事”报告会等，通过班级和学生个人之间“比、学、赶、帮、超”的“标杆管理”模式，营造了年级内部时刻保持争先、向上、激活状态的浓郁学习氛围。年级学生英语四级通过率、计算机二级通过率、期末考试优秀率居于全校同年级前列。电光13级拥有丰富多元的年级活动。年级凡是有利于学生成长的活动都激励广大同学举办，凡是学校举办的重大集体活动都激励学生参加，凡是参加的活动都激励学生永争第一。年级先后积极参加了校院举办的新生运动会、新生舞龙大赛等活动，举办了年级“双旦”晚会、PPT大赛、寝室美化大赛、青春多米诺大赛、原创诗歌大赛等文体活动，并试行了年级兴趣活动的“大专业承办制”。各类活动中坚持事前有策划、事中有组织、事后有反思的“前中后三段论模式”，为丰富同学课余生活、提高同学综合素质，搭建了优良平台。
+首先是构建嵌入式集群。大部分已经有过的研究都是用了诸如Raspiberry Pi、Pandaboard等开源硬件平台，我们在重复他们的实验的基础上针对实验室中的九鼎创展x210ii开发平台搭建集群。通过网络或者PCIe作为传输途径，测试传输效率。
 
-电光13级拥有高度敬业的管理团队。年级教育班是全年级整体教育、管理的负责机构，年级主任为宁德强，四名教育班学生助理为郭琪敏、郑星鑫、陈涵杰、陈璇。工作中，年级主任始终将“真爱学生”作为第一准则，秉承“用心、用脑、用感情”的育人理念，做广大学生的人生导师和知心朋友，工作中坚持不求成效的“立竿见影”，但求育人的“润物无声”。四位教育班助理秉承“甘当基石，愿为阶梯”的精神，协助辅导员做好年级工作。同时，教育班确定了工作中的“首问”负责制、“横向到边，纵向到底”分工制、“管理AB角”制、定期例会制等，保证了教育班和年级工作的正常、高效运转。
+然后需要进行的是任务调度和并行算法的开发。通过在集群中运行分布式计算程序来测试嵌入式集群的运行效率和性能指标。通过增加集群节点进行进一步测试发现限制增加节点集群性能增加的原因，给出可能的改进措施并且进行测试。
 
-展望未来，电光13的优秀学子们将继续坚守“敢为人先，争创一流”的电光精神，倡导“自立、感恩、奋斗”的年级文化，以理想为帆，以行动为桨，为建设“争先、团结、勤学、健康、追梦”的电光13级而不断迈进、大步向前！
+下一步是创建API接口来实现集群应用的多点部署，通过提供公用的API接口实现算法在不同集群中的复用。
 
-\section{实验分析}
-Happy TeXing!
-\end{spacing}
-
-%---------------------------------------------------------------------
-%  实验二
-%---------------------------------------------------------------------
-\chapter{通信二班}
-
-\begin{spacing}{1.5}
-\section{实验目的}
-
-\section{实验要求}
-
-\section{实验内容}
-
-\section{实验分析}
-
-\end{spacing}
-
-%---------------------------------------------------------------------
-%  实验感想
-%---------------------------------------------------------------------
-\titleformat{\chapter}{\centering\zihao{-1}\heiti}{}{1em}{}
-\chapter{实验感想}
-\begin{spacing}{1.5}
-	没什么好说的。
 \end{spacing}
 
 %---------------------------------------------------------------------
@@ -208,16 +171,26 @@ Happy TeXing!
 \addcontentsline{toc}{chapter}{参考文献}
 
 \begin{thebibliography}{99}
-\songti \zihao{-4} 	
-	\bibitem{Leslie.{1994}}
-	Leslie Lamport. LATEX: A Document Preparation System.AddisonWesley, Reading, Massachusetts, second edition, 1994, ISBN 0-201-52983-1.
-	
-	\bibitem{Donald.{1984}}
-	Donald E. Knuth. The TEXbook, Volume A of Computers and Typesetting,Addison Wesley, Reading, Massachusetts, second edition, 1984,ISBN 0-201-13448-9.
+\songti \zihao{-4} 
+\bibitem{Satyanarayanan.{2017}}
+Satyanarayanan M. The Emergence of Edge Computing[J]. Computer, 2017, 50(1):30-39.
 
-	
+\bibitem{ZhouPei.{2017}}
+周培. 骁龙835性能简析, 10纳米工艺再进一步[J]. 计算机与网络, 2017, 43(2):48-49.
+
+\bibitem{Gropp.{2002}}
+Gropp W, Lusk E L, Sterling T. Beowulf cluster computing with Linux[M]. Beowulf cluster computing with Linux, MIT Press, 2002.
+
+\bibitem{Barrios.{2017}}
+Barrios C J, Emeras J, Pecero J E. Energy model for low-power cluster[C].  Ieee/acm International Symposium on Cluster, Cloud and Grid Computing. IEEE Press, 2017:1009-1016.
+
+\bibitem{Cox.{2014}}
+Cox S J, Cox J T, Boardman R P, et al. Iridis-pi: a low-cost, compact demonstration cluster[J]. Cluster Computing, 2014, 17(2):349-358.
+
+\bibitem{Huang.{2016}}
+黄一智. 高性能并行分布式嵌入式集群构建与应用研究[D]. 湖南大学, 2016.
+
 \end{thebibliography}
-
 %---------------------------------------------------------------------
 %  附录设置
 %---------------------------------------------------------------------
@@ -227,64 +200,12 @@ Happy TeXing!
 \lstset{breaklines}                %自动将长的代码行换行排版
 \lstset{extendedchars=false}
 \lstset{language=Matlab}
+
 \renewcommand{\thechapter}{附录\Alph{chapter}.} 
 \appendix
 \begin{appendix}
-	
-	
-\chapter{数据表}
-\zihao{-4}\songti
 \begin{spacing}{1.5}
-	hello world!
-\end{spacing}
 
-
-\chapter{程序代码}
-\zihao{-4}\songti
-\begin{spacing}{1.5}
-下面是一个MATLAB程序的事例，使用了Package mcode，它能较好还原MATLAB本身的编写风格。
-\begin{lstlisting}
-%The program normalizes the measurement data and compares it to the standard cosine function
-data=xlsread('data_sun',1,'B3:E39');
-min=[(data(1,1)+data(37,1))/2,(data(1,2)+data(37,2))/2,...
-(data(1,3)+data(37,3))/2,(data(1,4)+data(37,4))/2];
-max=[data(19,1),data(19,2),data(19,3),data(19,4)];
-Min=repmat(min,37,1);
-Max=repmat(max,37,1);
-data=(data-Min)./(Max-Min);
-x=-pi/2:pi/36:pi/2;
-y=cos(x);
-%----------------------figure-------------------------%
-figure(1);
-subplot(2,2,1);
-plot(x,data(:,1),'ro-');
-hold on;
-plot(x,y,'b-');
-title('R=1.2\Omega');
-axis([-2,2,0,1]);
-grid on;
-subplot(2,2,2);
-plot(x,data(:,2),'ro-');
-hold on;
-plot(x,y,'b-');
-title('R=1.6\Omega');
-axis([-2,2,0,1]);
-grid on;
-subplot(2,2,3);
-plot(x,data(:,2),'ro-');
-hold on;
-plot(x,y,'b-');
-title('R=2.0\Omega');
-axis([-2,2,0,1]);
-grid on;
-subplot(2,2,4);
-plot(x,data(:,4),'ro-');
-hold on;
-plot(x,y,'b-');
-title('R=2.4\Omega');
-grid on;
-axis([-2,2,0,1]);
-\end{lstlisting}
 \end{spacing}
 \end{appendix}
 		
