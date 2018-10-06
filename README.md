@@ -14,9 +14,9 @@ LabReport模板，从[南理工实验报告模板](https://github.com/DocF/Njust
 
 ## Fixups
 - Package minted Error: You must invoke LaTeX with the -shell-escape flag.
--- 在选项 - 设置TexStudio - 命令 - XeLaTex 中加入 `-shell-escape`
+* 在选项 - 设置TexStudio - 命令 - XeLaTex 中加入 `-shell-escape`
 - Package minted Error: You must have pygmentize installed to use this package. 
--- 安装Python, 然后`pip install -i https://pypi.tuna.tsinghua.edu.cn/simple Pygments`
+* 安装Python, 然后`pip install -i https://pypi.tuna.tsinghua.edu.cn/simple Pygments`
 
 ## 推荐阅读
 - [Begin-Latex-in-minutes](https://github.com/luongvo209/Begin-Latex-in-minutes)
